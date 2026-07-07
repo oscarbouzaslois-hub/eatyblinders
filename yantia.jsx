@@ -1119,7 +1119,7 @@ function RecetaDetalle({ recId, st, setSt, cerrar, cocinar, addCompra, addPlan }
                 const st2 = ingStatus(st.prefs[it.id]);
                 // Multiplicar cantidad según porciones (porciones / raciones originales)
                 const factor = porciones / (r.rac || 4);
-                const cantidadAjustada = it.q.replace(/\d+(?:\.\d+)?/g, n => (parseFloat(n) * factor).toFixed(n.includes('.') ? 1 : 0));
+                const cantidadAjustada = (it.q || "").replace(/\d+(?:\.\d+)?/g, n => (parseFloat(n) * factor).toFixed(n.includes('.') ? 1 : 0));
                 return (
                   <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", borderTop: i ? `1px solid ${T.line}` : "none" }}>
                     <IngImg ing={ing} size={40} round={12} />
