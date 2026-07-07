@@ -27,6 +27,10 @@
 <body>
   <div id="root"></div>
   <script type="module">
+    window.storage = {
+      async get(k) { const v = localStorage.getItem(k); return v == null ? null : { key: k, value: v }; },
+      async set(k, v) { localStorage.setItem(k, v); return { key: k, value: v }; },
+    };
     import { createRoot } from "react-dom/client";
     import { jsx } from "react/jsx-runtime";
     import App from "./app.js";
