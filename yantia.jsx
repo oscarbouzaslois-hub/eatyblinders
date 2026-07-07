@@ -255,7 +255,7 @@ const INGS = [
 const RECETAS = [
   { id:"tortilla_patatas", n:"Tortilla de patatas", cat:"comida", dif:2, min:40, rac:4,
     desc:"El clásico entre los clásicos, jugosa por dentro y dorada por fuera.",
-    e:"🍳", nut:{kcal:320,p:11,cb:24,g:20}, tags:["vegetariana","sin gluten","clásico español"],
+    e:"🍳", nut:{kcal:320,p:11,cb:24,g:20}, tags:["vegetariana","sin gluten","clásico español","airfryer"],
     ing:[{id:"patata",q:"600 g",forma:"en tortilla"},{id:"huevo",q:"6 uds",forma:"en tortilla"},{id:"cebolla",q:"1 ud",forma:"pochada"},{id:"aove",q:"300 ml"},{id:"sal",q:"al gusto"}],
     pasos:[
       {t:"Pela y corta las patatas en láminas finas y la cebolla en juliana. Sálalas."},
@@ -263,7 +263,13 @@ const RECETAS = [
       {t:"Escurre bien el aceite. Bate los huevos en un bol grande con una pizca de sal."},
       {t:"Mezcla patata y cebolla con el huevo y deja reposar para que se empapen.",s:300},
       {t:"Cuaja en sartén antiadherente a fuego medio, 3 min por el primer lado.",s:180},
-      {t:"Dale la vuelta con un plato y cuaja 2-3 min más según la quieras de jugosa.",s:150}]},
+      {t:"Dale la vuelta con un plato y cuaja 2-3 min más según la quieras de jugosa.",s:150}],
+    airfryer:[
+      {t:"Corta patatas finas, sálalas. Calienta aceite en sartén a fuego fuerte."},
+      {t:"Saltea patatas y cebolla hasta que estén tiernas pero sin dorar, 8 min.",s:480},
+      {t:"Bate 6 huevos con sal. Vierte sobre patatas aún en la sartén, baja fuego."},
+      {t:"Cuando cuaje la base (2 min), pasa a bandeja de airfryer. Asa a 180°, 8 min.",s:480},
+      {t:"Sirve tal cual o dale la vuelta si quieres más tostada."}]},
   { id:"gazpacho", n:"Gazpacho andaluz", cat:"cena", dif:1, min:15, rac:4,
     desc:"Fresquísimo, de vaso o de cuchara. El verano en un bol.",
     e:"🍅", nut:{kcal:140,p:2,cb:12,g:9}, tags:["vegana","sin lactosa","frío","verano"],
@@ -314,14 +320,19 @@ const RECETAS = [
       {t:"Sirve con un hilo de aceite."}]},
   { id:"pollo_ajillo", n:"Pollo al ajillo", cat:"comida", dif:2, min:35, rac:4,
     desc:"Dorado, con su ajito frito y un golpe de vino blanco. Pan obligatorio.",
-    e:"🍗", nut:{kcal:420,p:38,cb:3,g:26}, tags:["sin gluten","clásico español"],
+    e:"🍗", nut:{kcal:420,p:38,cb:3,g:26}, tags:["sin gluten","clásico español","airfryer"],
     ing:[{id:"pollo_muslo",q:"1 kg"},{id:"ajo",q:"8 dientes",forma:"dorado en aceite"},{id:"vino_blanco",q:"150 ml"},{id:"laurel",q:"2 hojas"},{id:"romero",q:"1 rama"},{id:"aove",q:"4 cdas"},{id:"sal",q:"al gusto"},{id:"pimienta",q:"al gusto"}],
     pasos:[
       {t:"Salpimienta el pollo troceado. Lamina los ajos."},
       {t:"Dora los ajos en el aceite y resérvalos antes de que se quemen.",s:120},
       {t:"En ese aceite, dora el pollo bien por todos los lados.",s:600},
       {t:"Devuelve los ajos, añade vino, laurel y romero, y deja evaporar el alcohol.",s:120},
-      {t:"Tapa y cocina a fuego medio hasta que el pollo esté hecho y la salsa ligada.",s:900}]},
+      {t:"Tapa y cocina a fuego medio hasta que el pollo esté hecho y la salsa ligada.",s:900}],
+    airfryer:[
+      {t:"Trocea el pollo, salpimienta y rocía con spray de aceite."},
+      {t:"Asa a 200 °C, 20 min, removiendo a media cocción.",s:1200},
+      {t:"Aparte, dora ajos laminados en una sartén con aceite, con vino, laurel y romero."},
+      {t:"Vierte la salsa sobre el pollo asado y sirve."}]},
   { id:"arroz_cubana", n:"Arroz a la cubana", cat:"comida", dif:1, min:25, rac:2,
     desc:"Arroz blanco, tomate, huevo frito y, si te va, plátano. Placer sencillo.",
     e:"🍚", nut:{kcal:560,p:16,cb:75,g:21}, tags:["rápida","apta para niños"],
@@ -344,7 +355,7 @@ const RECETAS = [
       {t:"Fuera del fuego, mezcla pasta, bacon y la crema de huevo; liga con un poco de agua de cocción hasta que quede sedosa."}]},
   { id:"bolonesa", n:"Macarrones a la boloñesa", cat:"comida", dif:2, min:45, rac:4,
     desc:"Salsa de carne melosa cocinada sin prisa. Un valor seguro en casa.",
-    e:"🍝", nut:{kcal:580,p:28,cb:70,g:20}, tags:["apta para niños","batch cooking"],
+    e:"🍝", nut:{kcal:580,p:28,cb:70,g:20}, tags:["apta para niños","batch cooking","congelable"],
     ing:[{id:"macarrones",q:"360 g"},{id:"carne_picada_mixta",q:"400 g"},{id:"cebolla",q:"1 ud",forma:"en salsa (triturada)"},{id:"zanahoria",q:"1 ud",forma:"cocida en guiso"},{id:"apio",q:"1 rama",forma:"en caldo o guiso"},{id:"tomate_triturado",q:"400 g"},{id:"ajo",q:"2 dientes",forma:"dorado en aceite"},{id:"oregano",q:"1 cdta"},{id:"parmesano",q:"40 g"},{id:"aove",q:"3 cdas"},{id:"sal",q:"al gusto"}],
     pasos:[
       {t:"Sofríe cebolla, ajo, zanahoria y apio picados muy finos.",s:480},
@@ -364,14 +375,19 @@ const RECETAS = [
       {t:"Corona con pollo, picatostes y lascas de parmesano."}]},
   { id:"salmon_horno", n:"Salmón al horno con verduras", cat:"cena", dif:1, min:30, rac:2,
     desc:"Bandeja única al horno: salmón jugoso sobre cama de verduras.",
-    e:"🐟", nut:{kcal:460,p:34,cb:18,g:28}, tags:["sin gluten","omega 3","ligera"],
+    e:"🐟", nut:{kcal:460,p:34,cb:18,g:28}, tags:["sin gluten","omega 3","ligera","airfryer"],
     ing:[{id:"salmon",q:"2 lomos",forma:"al horno"},{id:"calabacin",q:"1 ud",forma:"a la plancha"},{id:"pimiento_rojo",q:"1 ud",forma:"asado"},{id:"cebolla",q:"1 ud",forma:"pochada"},{id:"limon",q:"1 ud"},{id:"eneldo",q:"1 cdta"},{id:"aove",q:"3 cdas"},{id:"sal",q:"al gusto"},{id:"pimienta",q:"al gusto"}],
     pasos:[
       {t:"Precalienta el horno a 200 °C. Corta las verduras en tiras finas."},
       {t:"Extiéndelas en una bandeja, aliña con aceite, sal y pimienta, y hornea 12 min.",s:720},
       {t:"Coloca encima los lomos salpimentados, con rodajas de limón y eneldo."},
       {t:"Hornea 10-12 min más, hasta que el salmón esté jugoso pero hecho.",s:660},
-      {t:"Sirve con un último chorrito de limón por encima."}]},
+      {t:"Sirve con un último chorrito de limón por encima."}],
+    airfryer:[
+      {t:"Corta verduras en tiras finas. Pásalas por spray de aceite y sazónalas."},
+      {t:"Asa en airfryer a 200 °C, 10 min.",s:600},
+      {t:"Añade los lomos de salmón con limón y eneldo. Asa 8-10 min más.",s:540},
+      {t:"Sirve con un chorrito de limón fresco."}]},
   { id:"merluza_verde", n:"Merluza en salsa verde", cat:"comida", dif:2, min:30, rac:4,
     desc:"Cazuela vasca de toda la vida: merluza, perejil y unas almejas.",
     e:"🐟", nut:{kcal:310,p:35,cb:6,g:15}, tags:["sin lactosa","clásico español"],
@@ -384,14 +400,19 @@ const RECETAS = [
       {t:"Lluvia generosa de perejil picado y a la mesa en la propia cazuela."}]},
   { id:"albondigas", n:"Albóndigas en salsa de tomate", cat:"comida", dif:2, min:50, rac:4,
     desc:"Tiernas por dentro, con salsa para mojar pan sin remordimientos.",
-    e:"🧆", nut:{kcal:490,p:30,cb:20,g:32}, tags:["apta para niños","batch cooking"],
+    e:"🧆", nut:{kcal:490,p:30,cb:20,g:32}, tags:["apta para niños","batch cooking","congelable","airfryer"],
     ing:[{id:"carne_picada_mixta",q:"500 g"},{id:"huevo",q:"1 ud"},{id:"pan_molde",q:"1 rebanada"},{id:"leche",q:"50 ml"},{id:"ajo",q:"2 dientes",forma:"crudo (alioli, gazpacho)"},{id:"perejil",q:"2 cdas"},{id:"harina",q:"para rebozar"},{id:"tomate_triturado",q:"400 g"},{id:"cebolla",q:"1 ud",forma:"en salsa (triturada)"},{id:"aove",q:"4 cdas"},{id:"sal",q:"al gusto"}],
     pasos:[
       {t:"Remoja el pan en leche. Mezcla la carne con huevo, ajo, perejil, sal y el pan escurrido."},
       {t:"Forma bolas, pásalas por harina y dóralas en aceite. Resérvalas.",s:480},
       {t:"En ese aceite, pocha la cebolla y añade el tomate; cocina 10 min.",s:600},
       {t:"Tritura la salsa, devuelve las albóndigas y cuece a fuego suave.",s:900},
-      {t:"Reposa 5 minutos y sirve con pan o arroz blanco.",s:300}]},
+      {t:"Reposa 5 minutos y sirve con pan o arroz blanco.",s:300}],
+    airfryer:[
+      {t:"Forma las albóndigas. Sin rebozar, pásalas por spray de aceite ligero."},
+      {t:"Hornea en airfryer a 200 °C, 12-14 min, removiendo a media cocción.",s:800},
+      {t:"Mientras, prepara la salsa de tomate en una cazuela con cebolla pochada."},
+      {t:"Sirve las albóndigas sobre la salsa de tomate con pan o arroz."}]},
   { id:"pisto", n:"Pisto manchego con huevo", cat:"cena", dif:2, min:45, rac:4,
     desc:"Verduras confitadas a fuego lento coronadas con huevo.",
     e:"🍳", nut:{kcal:280,p:10,cb:16,g:19}, tags:["vegetariana","sin gluten","de aprovechamiento"],
@@ -404,14 +425,19 @@ const RECETAS = [
       {t:"Sirve con un huevo frito (o escalfado) por persona encima."}]},
   { id:"fajitas", n:"Fajitas de pollo", cat:"cena", dif:1, min:30, rac:4,
     desc:"Sartenada colorida para montar en la mesa. Éxito familiar asegurado.",
-    e:"🌮", nut:{kcal:520,p:32,cb:50,g:20}, tags:["tex-mex","apta para niños","para compartir"],
+    e:"🌮", nut:{kcal:520,p:32,cb:50,g:20}, tags:["tex-mex","apta para niños","para compartir","airfryer"],
     ing:[{id:"tortillas_trigo",q:"8 uds"},{id:"pollo_pechuga",q:"500 g",forma:"en curry"},{id:"pimiento_rojo",q:"1 ud",forma:"frito"},{id:"pimiento_verde",q:"1 ud",forma:"frito"},{id:"cebolla",q:"1 ud",forma:"pochada"},{id:"comino",q:"1 cdta"},{id:"pimenton",q:"1 cdta"},{id:"lima",q:"1 ud"},{id:"aove",q:"3 cdas"},{id:"sal",q:"al gusto"}],
     pasos:[
       {t:"Corta pollo, pimientos y cebolla en tiras. Adoba el pollo con comino, pimentón y sal."},
       {t:"Saltea el pollo a fuego fuerte hasta dorarlo y resérvalo.",s:360},
       {t:"Saltea las verduras en la misma sartén hasta que estén al dente.",s:300},
       {t:"Junta todo, exprime la lima por encima y da un último golpe de calor.",s:120},
-      {t:"Calienta las tortillas 30 s por lado y sirve para que cada uno monte la suya."}]},
+      {t:"Calienta las tortillas 30 s por lado y sirve para que cada uno monte la suya."}],
+    airfryer:[
+      {t:"Tira pollo y verduras en tiras. Salpimienta, adoba con comino y pimentón."},
+      {t:"Pasa por spray de aceite y asa a 200 °C, 15 min, removiendo a media cocción.",s:900},
+      {t:"Vierte en una bandeja, exprime lima y mezcla bien."},
+      {t:"Calienta las tortillas en sartén 30 s por lado. Sirve para montar."}]},
   { id:"curry_garbanzos", n:"Curry de garbanzos", cat:"comida", dif:1, min:35, rac:4,
     desc:"Cremoso, especiado y 100 % vegetal. Con arroz basmati es un abrazo.",
     e:"🍛", nut:{kcal:430,p:14,cb:60,g:14}, tags:["vegana","sin gluten","especiada"],
@@ -1061,6 +1087,7 @@ function RecetaDetalle({ recId, st, setSt, cerrar, cocinar, addCompra, addPlan }
   const b = badgeMatch(m.score);
   const [porciones, setPorciones] = useState(r.rac || 4);
   const [usaThermomix, setUsaThermomix] = useState(false);
+  const [usaAirfryer, setUsaAirfryer] = useState(false);
 
   const toggleFav = () => setSt(s => ({ ...s, favs: fav ? s.favs.filter(x => x !== r.id) : [...s.favs, r.id] }));
   const setRating = (n) => setSt(s => ({ ...s, probadas: { ...s.probadas, [r.id]: { fecha: Date.now(), rating: n } } }));
@@ -1111,22 +1138,33 @@ function RecetaDetalle({ recId, st, setSt, cerrar, cocinar, addCompra, addPlan }
             </div>
           </section>
 
-          {r.thermomix && (
+          {(r.thermomix || r.airfryer) && (
             <section>
               <h2 className="yt-display" style={{ fontSize: 16, fontWeight: 800, margin: "0 0 8px" }}>Instrucciones</h2>
-              <div style={{ display: "flex", gap: 8 }}>
-                <button onClick={() => setUsaThermomix(false)}
-                  style={{ flex: 1, padding: "12px 14px", borderRadius: 14, fontWeight: 700, fontSize: 14,
-                    background: !usaThermomix ? T.brandSoft : "#fff", color: !usaThermomix ? T.brand : "#A29D93",
-                    border: `1.5px solid ${!usaThermomix ? T.brand : T.line}` }}>
-                  🍳 Receta clásica
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <button onClick={() => { setUsaThermomix(false); setUsaAirfryer(false); }}
+                  style={{ flex: r.thermomix && r.airfryer ? "1" : "1", padding: "12px 14px", borderRadius: 14, fontWeight: 700, fontSize: 14,
+                    background: (!usaThermomix && !usaAirfryer) ? T.brandSoft : "#fff",
+                    color: (!usaThermomix && !usaAirfryer) ? T.brand : "#A29D93",
+                    border: `1.5px solid ${(!usaThermomix && !usaAirfryer) ? T.brand : T.line}` }}>
+                  🍳 Clásica
                 </button>
-                <button onClick={() => setUsaThermomix(true)}
-                  style={{ flex: 1, padding: "12px 14px", borderRadius: 14, fontWeight: 700, fontSize: 14,
-                    background: usaThermomix ? T.brandSoft : "#fff", color: usaThermomix ? T.brand : "#A29D93",
-                    border: `1.5px solid ${usaThermomix ? T.brand : T.line}` }}>
-                  ⚙️ Thermomix
-                </button>
+                {r.thermomix && (
+                  <button onClick={() => { setUsaThermomix(true); setUsaAirfryer(false); }}
+                    style={{ flex: 1, padding: "12px 14px", borderRadius: 14, fontWeight: 700, fontSize: 14,
+                      background: usaThermomix ? T.brandSoft : "#fff", color: usaThermomix ? T.brand : "#A29D93",
+                      border: `1.5px solid ${usaThermomix ? T.brand : T.line}` }}>
+                    ⚙️ Thermomix
+                  </button>
+                )}
+                {r.airfryer && (
+                  <button onClick={() => { setUsaAirfryer(true); setUsaThermomix(false); }}
+                    style={{ flex: 1, padding: "12px 14px", borderRadius: 14, fontWeight: 700, fontSize: 14,
+                      background: usaAirfryer ? T.brandSoft : "#fff", color: usaAirfryer ? T.brand : "#A29D93",
+                      border: `1.5px solid ${usaAirfryer ? T.brand : T.line}` }}>
+                    💨 Airfryer
+                  </button>
+                )}
               </div>
             </section>
           )}
@@ -1174,7 +1212,7 @@ function RecetaDetalle({ recId, st, setSt, cerrar, cocinar, addCompra, addPlan }
           <section>
             <h2 className="yt-display" style={{ fontSize: 16, fontWeight: 800, margin: "0 0 8px" }}>Pasos</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              {(usaThermomix && r.thermomix ? r.thermomix : r.pasos).map((p, i) => (
+              {(usaThermomix && r.thermomix ? r.thermomix : usaAirfryer && r.airfryer ? r.airfryer : r.pasos).map((p, i) => (
                 <div key={i} style={{ display: "flex", gap: 10, background: "#fff", borderRadius: 16, border: `1px solid ${T.line}`, padding: "12px 14px" }}>
                   <div className="yt-display" style={{ fontWeight: 800, color: T.brand, minWidth: 22 }}>{i + 1}</div>
                   <div style={{ fontSize: 14, lineHeight: 1.45 }}>

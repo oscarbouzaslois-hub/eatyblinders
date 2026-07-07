@@ -2224,7 +2224,7 @@ const RECETAS = [{
     cb: 24,
     g: 20
   },
-  tags: ["vegetariana", "sin gluten", "clásico español"],
+  tags: ["vegetariana", "sin gluten", "clásico español", "airfryer"],
   ing: [{
     id: "patata",
     q: "600 g",
@@ -2260,6 +2260,19 @@ const RECETAS = [{
   }, {
     t: "Dale la vuelta con un plato y cuaja 2-3 min más según la quieras de jugosa.",
     s: 150
+  }],
+  airfryer: [{
+    t: "Corta patatas finas, sálalas. Calienta aceite en sartén a fuego fuerte."
+  }, {
+    t: "Saltea patatas y cebolla hasta que estén tiernas pero sin dorar, 8 min.",
+    s: 480
+  }, {
+    t: "Bate 6 huevos con sal. Vierte sobre patatas aún en la sartén, baja fuego."
+  }, {
+    t: "Cuando cuaje la base (2 min), pasa a bandeja de airfryer. Asa a 180°, 8 min.",
+    s: 480
+  }, {
+    t: "Sirve tal cual o dale la vuelta si quieres más tostada."
   }]
 }, {
   id: "gazpacho",
@@ -2533,7 +2546,7 @@ const RECETAS = [{
     cb: 3,
     g: 26
   },
-  tags: ["sin gluten", "clásico español"],
+  tags: ["sin gluten", "clásico español", "airfryer"],
   ing: [{
     id: "pollo_muslo",
     q: "1 kg"
@@ -2574,6 +2587,16 @@ const RECETAS = [{
   }, {
     t: "Tapa y cocina a fuego medio hasta que el pollo esté hecho y la salsa ligada.",
     s: 900
+  }],
+  airfryer: [{
+    t: "Trocea el pollo, salpimienta y rocía con spray de aceite."
+  }, {
+    t: "Asa a 200 °C, 20 min, removiendo a media cocción.",
+    s: 1200
+  }, {
+    t: "Aparte, dora ajos laminados en una sartén con aceite, con vino, laurel y romero."
+  }, {
+    t: "Vierte la salsa sobre el pollo asado y sirve."
   }]
 }, {
   id: "arroz_cubana",
@@ -2690,7 +2713,7 @@ const RECETAS = [{
     cb: 70,
     g: 20
   },
-  tags: ["apta para niños", "batch cooking"],
+  tags: ["apta para niños", "batch cooking", "congelable"],
   ing: [{
     id: "macarrones",
     q: "360 g"
@@ -2822,7 +2845,7 @@ const RECETAS = [{
     cb: 18,
     g: 28
   },
-  tags: ["sin gluten", "omega 3", "ligera"],
+  tags: ["sin gluten", "omega 3", "ligera", "airfryer"],
   ing: [{
     id: "salmon",
     q: "2 lomos",
@@ -2867,6 +2890,17 @@ const RECETAS = [{
     s: 660
   }, {
     t: "Sirve con un último chorrito de limón por encima."
+  }],
+  airfryer: [{
+    t: "Corta verduras en tiras finas. Pásalas por spray de aceite y sazónalas."
+  }, {
+    t: "Asa en airfryer a 200 °C, 10 min.",
+    s: 600
+  }, {
+    t: "Añade los lomos de salmón con limón y eneldo. Asa 8-10 min más.",
+    s: 540
+  }, {
+    t: "Sirve con un chorrito de limón fresco."
   }]
 }, {
   id: "merluza_verde",
@@ -2943,7 +2977,7 @@ const RECETAS = [{
     cb: 20,
     g: 32
   },
-  tags: ["apta para niños", "batch cooking"],
+  tags: ["apta para niños", "batch cooking", "congelable", "airfryer"],
   ing: [{
     id: "carne_picada_mixta",
     q: "500 g"
@@ -2994,6 +3028,16 @@ const RECETAS = [{
   }, {
     t: "Reposa 5 minutos y sirve con pan o arroz blanco.",
     s: 300
+  }],
+  airfryer: [{
+    t: "Forma las albóndigas. Sin rebozar, pásalas por spray de aceite ligero."
+  }, {
+    t: "Hornea en airfryer a 200 °C, 12-14 min, removiendo a media cocción.",
+    s: 800
+  }, {
+    t: "Mientras, prepara la salsa de tomate en una cazuela con cebolla pochada."
+  }, {
+    t: "Sirve las albóndigas sobre la salsa de tomate con pan o arroz."
   }]
 }, {
   id: "pisto",
@@ -3078,7 +3122,7 @@ const RECETAS = [{
     cb: 50,
     g: 20
   },
-  tags: ["tex-mex", "apta para niños", "para compartir"],
+  tags: ["tex-mex", "apta para niños", "para compartir", "airfryer"],
   ing: [{
     id: "tortillas_trigo",
     q: "8 uds"
@@ -3127,6 +3171,16 @@ const RECETAS = [{
     s: 120
   }, {
     t: "Calienta las tortillas 30 s por lado y sirve para que cada uno monte la suya."
+  }],
+  airfryer: [{
+    t: "Tira pollo y verduras en tiras. Salpimienta, adoba con comino y pimentón."
+  }, {
+    t: "Pasa por spray de aceite y asa a 200 °C, 15 min, removiendo a media cocción.",
+    s: 900
+  }, {
+    t: "Vierte en una bandeja, exprime lima y mezcla bien."
+  }, {
+    t: "Calienta las tortillas en sartén 30 s por lado. Sirve para montar."
   }]
 }, {
   id: "curry_garbanzos",
@@ -5386,6 +5440,7 @@ function RecetaDetalle({
   const b = badgeMatch(m.score);
   const [porciones, setPorciones] = useState(r.rac || 4);
   const [usaThermomix, setUsaThermomix] = useState(false);
+  const [usaAirfryer, setUsaAirfryer] = useState(false);
   const toggleFav = () => setSt(s => ({
     ...s,
     favs: fav ? s.favs.filter(x => x !== r.id) : [...s.favs, r.id]
@@ -5579,7 +5634,7 @@ function RecetaDetalle({
               children: n === 1 ? "1️⃣ Una" : n === 2 ? "2️⃣ Dos" : "4️⃣ Cuatro"
             }, n))
           })]
-        }), r.thermomix && /*#__PURE__*/_jsxs("section", {
+        }), (r.thermomix || r.airfryer) && /*#__PURE__*/_jsxs("section", {
           children: [/*#__PURE__*/_jsx("h2", {
             className: "yt-display",
             style: {
@@ -5591,23 +5646,30 @@ function RecetaDetalle({
           }), /*#__PURE__*/_jsxs("div", {
             style: {
               display: "flex",
-              gap: 8
+              gap: 8,
+              flexWrap: "wrap"
             },
             children: [/*#__PURE__*/_jsx("button", {
-              onClick: () => setUsaThermomix(false),
+              onClick: () => {
+                setUsaThermomix(false);
+                setUsaAirfryer(false);
+              },
               style: {
-                flex: 1,
+                flex: r.thermomix && r.airfryer ? "1" : "1",
                 padding: "12px 14px",
                 borderRadius: 14,
                 fontWeight: 700,
                 fontSize: 14,
-                background: !usaThermomix ? T.brandSoft : "#fff",
-                color: !usaThermomix ? T.brand : "#A29D93",
-                border: `1.5px solid ${!usaThermomix ? T.brand : T.line}`
+                background: !usaThermomix && !usaAirfryer ? T.brandSoft : "#fff",
+                color: !usaThermomix && !usaAirfryer ? T.brand : "#A29D93",
+                border: `1.5px solid ${!usaThermomix && !usaAirfryer ? T.brand : T.line}`
               },
-              children: "\uD83C\uDF73 Receta cl\xE1sica"
-            }), /*#__PURE__*/_jsx("button", {
-              onClick: () => setUsaThermomix(true),
+              children: "\uD83C\uDF73 Cl\xE1sica"
+            }), r.thermomix && /*#__PURE__*/_jsx("button", {
+              onClick: () => {
+                setUsaThermomix(true);
+                setUsaAirfryer(false);
+              },
               style: {
                 flex: 1,
                 padding: "12px 14px",
@@ -5619,6 +5681,22 @@ function RecetaDetalle({
                 border: `1.5px solid ${usaThermomix ? T.brand : T.line}`
               },
               children: "\u2699\uFE0F Thermomix"
+            }), r.airfryer && /*#__PURE__*/_jsx("button", {
+              onClick: () => {
+                setUsaAirfryer(true);
+                setUsaThermomix(false);
+              },
+              style: {
+                flex: 1,
+                padding: "12px 14px",
+                borderRadius: 14,
+                fontWeight: 700,
+                fontSize: 14,
+                background: usaAirfryer ? T.brandSoft : "#fff",
+                color: usaAirfryer ? T.brand : "#A29D93",
+                border: `1.5px solid ${usaAirfryer ? T.brand : T.line}`
+              },
+              children: "\uD83D\uDCA8 Airfryer"
             })]
           })]
         }), /*#__PURE__*/_jsxs("section", {
@@ -5772,7 +5850,7 @@ function RecetaDetalle({
               flexDirection: "column",
               gap: 8
             },
-            children: (usaThermomix && r.thermomix ? r.thermomix : r.pasos).map((p, i) => /*#__PURE__*/_jsxs("div", {
+            children: (usaThermomix && r.thermomix ? r.thermomix : usaAirfryer && r.airfryer ? r.airfryer : r.pasos).map((p, i) => /*#__PURE__*/_jsxs("div", {
               style: {
                 display: "flex",
                 gap: 10,
