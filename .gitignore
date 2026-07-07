@@ -1,0 +1,5 @@
+yantia-web.zip
+files/
+.claude/
+node_modules/
+*.local.json
