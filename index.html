@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>EatyBlinders — Descubre recetas sin prejuicios</title>
+  <meta name="description" content="App PWA de descubrimiento de recetas. Cata ingredientes estilo Tinder, encuentra recetas personalizadas, planifica tu semana y genera la lista de la compra." />
+  <meta name="theme-color" content="#E8532C" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./icon-180.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="EatyBlinders" />
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.3.1",
+      "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
+      "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?deps=react@18.3.1",
+      "lucide-react": "https://esm.sh/lucide-react@0.383.0?deps=react@18.3.1"
+    }
+  }
+  </script>
+  <style>html,body{margin:0;height:100%;background:#F5F3EE}#root{height:100%}</style>
+</head>
+<body>
+  <div id="root">Cargando...</div>
+  <script type="module">
+    window.storage = {
+      async get(k) { const v = localStorage.getItem(k); return v == null ? null : { key: k, value: v }; },
+      async set(k, v) { localStorage.setItem(k, v); return { key: k, value: v }; },
+    };
+    (async () => {
+      try {
+        console.log("Step 1: Starting");
+        const React = await import("react");
+        console.log("Step 2: React imported");
+        const { createRoot } = await import("react-dom/client");
+        console.log("Step 3: ReactDOM imported");
+        const mod = await import("./app.js?v=" + Date.now());
+        console.log("Step 4: app.js imported", mod);
+        const App = mod.default;
+        console.log("Step 5: App component:", App);
+        const root = createRoot(document.getElementById("root"));
+        console.log("Step 6: Root created");
+        if (App) {
+          const element = React.createElement(App);
+          console.log("Step 7: Element created", element);
+          root.render(element);
+          console.log("Step 8: App rendered successfully");
+        } else {
+          throw new Error("App component not found");
+        }
+      } catch (e) {
+        console.error("App error:", e);
+        const errDiv = document.createElement("div");
+        errDiv.style.cssText = "padding:20px;color:red;font-family:monospace;white-space:pre-wrap;font-size:14px";
+        errDiv.textContent = `ERROR: ${e.message}\n\n${e.stack}`;
+        document.getElementById("root").textContent = "";
+        document.getElementById("root").appendChild(errDiv);
+      }
+    })();
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+    }
+  </script>
+</body>
+</html>
