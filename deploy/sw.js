@@ -1,6 +1,6 @@
-/* Yantia SW: app shell offline-first, CDN y fotos con caché en segundo plano */
-const CORE = "yantia-core-v1";
-const RUNTIME = "yantia-rt-v1";
+/* EatyBlinders SW: app shell offline-first, CDN y fotos con caché en segundo plano */
+const CORE = "eatyblinders-core-v1";
+const RUNTIME = "eatyblinders-rt-v1";
 const SHELL = ["./", "./index.html", "./app.js", "./manifest.webmanifest", "./icon.svg"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CORE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
